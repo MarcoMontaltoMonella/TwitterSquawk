@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.mmm.tws.graphics.ViewController">
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <menus>
+                  <Menu mnemonicParsing="false" style="-fx-font-weight: bold;" text="TwitterSquawk">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#doAboutTwitterSquawk" style="-fx-font-weight: normal;" text="About TwitterSquawk" />
+                        <MenuItem mnemonicParsing="false" onAction="#quitTwitterSquawk" style="-fx-font-weight: normal;" text="Quit TwitterSquawk" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="User">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#doLogout" text="Logout" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="View">
+                     <items>
+                        <MenuItem fx:id="btnShowHideTips" mnemonicParsing="false" onAction="#doShowHideTips" text="Show tips *" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <Menu mnemonicParsing="false" text="Useful webpages">
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#doOpenTradingEconomicsWebsite" text="Trading Economics Calendar" />
+                              <MenuItem mnemonicParsing="false" onAction="#doWatchTutorial" text="Video tutorial - YouTube" />
+                          </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#doSendFeedbackEmail" text="Send feedback" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+   </top>
+   <right>
+      <AnchorPane prefWidth="206.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="rightPaneFilters" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="132.0" fitWidth="158.0" layoutX="59.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="7.0">
+                     <image>
+                        <Image url="@../../../../../../../res/img/turningGears.gif" />
+                     </image>
+                  </ImageView>
+                  <VBox spacing="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <RadioButton fx:id="radioAudio" mnemonicParsing="false" onAction="#radioAudioSwitched" style="-fx-mark-color: #00ccff;" text="Audio">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="radioDoNotReadLinks" mnemonicParsing="false" style="-fx-mark-color: #00ccff;" text="do not read links">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="radioDoNotReadHashtag" mnemonicParsing="false" style="-fx-mark-color: #00ccff;" text="do not read hashtags">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </RadioButton>
+                        <Label text="Read tweets not older than:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <HBox spacing="1.0">
+                           <children>
+                              <TextField fx:id="txtFTTL" alignment="CENTER" text="20" />
+                              <ComboBox fx:id="comboTTL" prefWidth="150.0" visibleRowCount="5" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="tip2" text="* Tweets are read starting from the newest (Empty_field=24h)" textAlignment="CENTER" visible="false" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Speech rate:" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="comboRate" layoutX="40.0" layoutY="30.0" visibleRowCount="5" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <VBox.margin>
+                                    <Insets left="40.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#doStart" styleClass="start" text="START" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="btnStop" mnemonicParsing="false" onAction="#doStop" styleClass="stop" text="STOP" textFill="WHITE" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+         </children>
+      </AnchorPane>
+   </right>
+   <bottom>
+      <AnchorPane style="-fx-background-color: #00ccff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="tip1" text="* Double-click on a word to remove it" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="userStatusLabel" layoutX="10.0" layoutY="10.0" text="Logged off" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="5.0" />
+            <Circle fx:id="userStatusCircle" fill="RED" layoutX="589.0" layoutY="13.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="7.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <left>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="runningStreamDisplay" editable="false" prefHeight="200.0" prefWidth="200.0" text="Streaming tweets" visible="false" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <VBox fx:id="leftPaneFilters" alignment="CENTER" spacing="5.0" style="-fx-background-color: #ffcc00;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Active filters" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ListView fx:id="filtersListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="centerPaneRunning" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="runningPictureDisplay" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="43.0" AnchorPane.topAnchor="20.0" />
+                  <TextArea fx:id="txtAreaRunningInfo" editable="false" prefHeight="150.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+               </children>
+            </AnchorPane>
+            <VBox fx:id="centerPaneFilters" alignment="BASELINE_CENTER" fillWidth="false" spacing="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#doAddFilters" styleClass="addFilters" text="Add filters">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#doClearFilters" styleClass="removeFilters" text="Remove all filters" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../res/img/minimal_bird.png" />
+                     </image>
+                  </ImageView>
+                  <HBox spacing="10.0">
+                     <children>
+                        <Label text="Tweets source:">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="comboStreamSource" />
+                     </children>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
