@@ -6,7 +6,8 @@ At the moment the vocal reading functionality is supported only on OS X systems,
 
 **Official PDF guide:**
 
-https://github.com/MarcoMontaltoMonella/TwitterSquawk/blob/master/TwitterSquawk_final_v1.00/docs/Twitter_Squawk.pdf
+[click here!](https://github.com/MarcoMontaltoMonella/TwitterSquawk/blob/master/TwitterSquawk_final_v1.00/docs/Twitter_Squawk.pdf)
+
 
 **YouTube video tutorial:**
 
