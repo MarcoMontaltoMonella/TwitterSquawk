@@ -1,4 +1,4 @@
-# TwitterSquawk
+# TwitterSquawk ![alt text](https://github.com/MarcoMontaltoMonella/TwitterSquawk/blob/master/TwitterSquawk_final_v1.00/res/img/TWlogoSunglasses.png "Sunglasses logo")
 
 The focal point of this application is to filter tweets by string matching and optionally read them vocally.
 
@@ -30,3 +30,5 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+___
+![alt text](https://github.com/MarcoMontaltoMonella/TwitterSquawk/blob/master/TwitterSquawk_final_v1.00/res/img/coverTS_noB.png "Intro image")
