@@ -169,9 +169,18 @@ public class Filter {
 		
 		//if matches returns TRUE
 		for(String s : this.setOfWords){
-			if(status.getText().toLowerCase().contains(s)){
-				return true;
+			//NEW
+			StringTokenizer st = new StringTokenizer(status.getText(), " ");
+			while(st.hasMoreTokens()){
+				if(st.nextToken().toLowerCase().equals(s)){
+					return true;
+				}
 			}
+			
+			//OLD match if the complete tweet contains the sequence of letter of a filter word
+//			if(status.getText().toLowerCase().contains(s)){
+//				return true;
+//			}
 		}
 		//else FALSE
 		return false;
